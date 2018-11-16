@@ -1,0 +1,5 @@
+PORT=9000
+ELASTICSEARCH_URL=elasticsearch:9200
+ELASTICSEARCH_LOG_LEVEL=error
+MONGODB_URL=mongodb://username:password@mongo
+MONGODB_DBNAME=answerfamily

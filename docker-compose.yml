@@ -1,0 +1,34 @@
+# Builds developing environment for rumors-api
+#
+version: '2'
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.3.2
+    ports:
+      - "9200:9200"
+    volumes:
+      - "./db/esdata:/usr/share/elasticsearch/data"
+    environment:
+      - "path.repo=/usr/share/elasticsearch/data"
+      - "ES_JAVA_OPTS=-Xms2g -Xmx2g" # Prevent elasticsearch eating up too much memory
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    # should contain MONGO_INITDB_ROOT_USERNAME and MONGO_INITDB_ROOT_PASSWORD
+    env_file: env-files/mongo
+    volumes:
+      - "./db/mongodata:/data/db"
+
+  api:
+    depends_on:
+      - elasticsearch
+      - mongo
+    image: answerfamily/answerfamily-api
+    ports:
+      - "9000:9000"
+    # See answerfamily-api's .env
+    env_file: env-files/api
+    environment:
+      - NODE_ENV=production

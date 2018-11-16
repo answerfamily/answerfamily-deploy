@@ -1,0 +1,6 @@
+**/.DS_Store
+db/esdata/*
+db/mongodata/*
+env-files/*
+!env-files/*.sample
+!**/.gitkeep

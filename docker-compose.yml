@@ -42,3 +42,8 @@ services:
     env_file: env-files/api
     environment:
       - NODE_ENV=production
+
+  web:
+    image: answerfamily/web
+    ports:
+      - "3000:3000"

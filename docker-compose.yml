@@ -47,3 +47,6 @@ services:
     image: answerfamily/web
     ports:
       - "3000:3000"
+    env_file: env-files/web
+    environment:
+      - NODE_ENV=production

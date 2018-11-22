@@ -1,0 +1,11 @@
+# rumors-site SSR server config
+PORT=3000
+
+PUBLIC_API_URL=https://api.answerfamily.org
+
+# UA-XXXXXXXX-X
+PUBLIC_GA_TRACKER=
+
+# xxxxx.auth0.com
+PUBLIC_AUTH0_CLIENT_DOMAIN=answerfamily.auth0.com
+PUBLIC_AUTH0_CLIENT_ID=

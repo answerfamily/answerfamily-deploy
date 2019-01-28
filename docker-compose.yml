@@ -26,7 +26,6 @@ services:
     image: mongo
     ports:
       - "27017:27017"
-    # should contain MONGO_INITDB_ROOT_USERNAME and MONGO_INITDB_ROOT_PASSWORD
     env_file: env-files/mongo
     volumes:
       - "./volumes/mongodata:/data/db"
@@ -38,7 +37,6 @@ services:
     image: answerfamily/api
     ports:
       - "9000:9000"
-    # See answerfamily-api's .env
     env_file: env-files/api
     environment:
       - NODE_ENV=production
@@ -50,3 +48,10 @@ services:
     env_file: env-files/web
     environment:
       - NODE_ENV=production
+
+  url-resolver:
+    image: johnsonliang/cofacts-url-resolver
+    ports:
+      - "4000:4000"
+    # See answerfamily-api's .env
+    env_file: env-files/url-resolver
